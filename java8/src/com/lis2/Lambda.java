@@ -125,7 +125,8 @@ public class Lambda {
     //构造器引用
     @Test
     public void test12() {
-        Supplier<Employee> supplier = ()-> new Employee ();
+//        Supplier<Employee> supplier = ()-> new Employee ();
+        Supplier<Employee> supplier = Employee::new;
         Employee employee = supplier.get ();
     }
 
