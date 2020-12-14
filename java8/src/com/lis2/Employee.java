@@ -1,6 +1,7 @@
 package com.lis2;
 
 import javax.swing.*;
+import java.util.Objects;
 
 public class Employee {
     private String name;
@@ -49,5 +50,20 @@ public class Employee {
                 ", id=" + id +
                 ", salary=" + salary +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass () != o.getClass ()) return false;
+        Employee employee = (Employee) o;
+        return Objects.equals (name, employee.name) &&
+                Objects.equals (id, employee.id) &&
+                Objects.equals (salary, employee.salary);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash (name, id, salary);
     }
 }
